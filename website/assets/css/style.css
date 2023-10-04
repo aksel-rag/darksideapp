@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+*{
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+body {
+  background-color: #201d30;
+  background-image: url("https://i.imgur.com/rkuLygK.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+#particles-js {
+  height: auto;
+}
+
+
+nav{
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  transition: 0.3s ease all;
+}
+
+nav img {
+  max-width: 6vh;
+  padding: 1em;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav a{
+  color: white;
+  text-decoration: none;
+  font-family: "Ubuntu";
+}
+
+#nav-links{
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 4%;
+  font-size: 2vh;
+  transform: translate(-4%,-50%);
+}
+nav a{
+  transition: .2s ease all;
+}
+nav a:hover{
+  color: rgb(107, 104, 104);
+}
+
+
+#social-links{
+  display: flex;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 99%;
+  transform: translate(-99%,-50%);
+  letter-spacing: 1em;
+  font-size: 2.5vh;
+}
+
+#center{
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-family: "Kanit";
+
+}
+
+h1{
+  font-size: 4.5vh;
+}
+
+#loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121212;
+  z-index: 9999;
+  transition: 1s ease-in-out;
+}
+
+#loading-screen p {
+  font-family: "Kanit";
+  font-size: 2.4vh;
+  color: white;
+}
+
+#download,#downloadWin,#downloadAnd{
+  font-family: "Kanit";
+  border: none;
+  padding: 1em;
+  border-radius: .5em;
+  background: none;
+  color: white;
+  border: .2vh solid white;
+  transition: .2s ease-in-out all;
+  font-size: 2vh;
+}
+
+#download:hover{
+  padding: 1em;
+  border-radius: .5em;
+  background: white;
+  color: black;
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+#downloadWin:hover{
+  padding: 1em;
+  border-radius: .5em;
+  background: white;
+  color: black;
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+#downloadAnd:hover{
+  padding: 1em;
+  border-radius: .5em;
+  background: white;
+  color: black;
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+#downloadCard {
+  background-image: url("https://i.imgur.com/rkuLygK.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 65vh;
+  height: 45vh;
+  border-radius: 1em;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#downloadCard1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background-image: url("https://i.imgur.com/rkuLygK.png");
+  background-repeat: no-repeat;
+  width: 30vh;
+  height: 35vh;
+  border-radius: 2em;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+}
+
+#downloadCard1 h1{
+  font-size: 3vh;
+}
+#icon{
+  font-size: 7.5vh;
+}
+
+#back {
+  cursor: pointer;
+  position: absolute;
+  padding: 15px;
+  top: 10px;
+  left: 10px;
+  transition: .2s ease all;
+}
+
+#back2 {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%,-25%);
+  color: white;
+  transition: .2s ease-in-out all;
+  font-size: 2.5vh;
+}
+
+#back2:hover{
+  color: rgb(107, 104, 104);
+}
+
+#back:hover{
+  color: rgb(107, 104, 104);
+}
+
+#changeOS{
+  color: rgb(46, 46, 46);
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+  font-size: 1.5vh;
+  cursor: pointer;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade {
+  animation: fade-in 1s;
+}
+
+#credit{
+  cursor: pointer;
+  position:absolute;
+  bottom:0;
+  right:0;
+  padding: 10px;
+  color: #5a5a5a;
+  transition: .2s ease-in all;
+  font-family: "Kanit";
+}
+#credit:hover{
+  color: #fff;
+  background-color: #1212128f;
+  border-radius: 15px;
+  margin: 5px;
+  font-size: 1.2vh;
+}
+#allOS{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-size: auto 100%;
+    background-position: center center;
+  }
+  #particles-js {
+    height: 100vh;
+  }
+  #allOS{
+    position: absolute;
+    transform: translate(-50%, -42%);
+    top: 42%;
+    left: 50%;
+    display: block;
+  }
+  #downloadCard1 {
+    background-size: auto 100%;
+    background-position: center center;
+    width: 200px;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #downloadCard{
+    background-size: auto 100%;
+    background-position: center center;
+    width: 30vh;
+    height: 40vh;
+  }
+  #download{
+    font-size: 2.5vh;
+  }
+  #downloadWin{
+    font-size: 1.5vh;
+  }
+  #downloadAnd{
+    font-size: 1.5vh;
+  }
+  h1{
+    font-size: 3.5vh;
+  }
+  #downloadCard h1{
+    font-size: 2.5vh;
+  }
+  #back2 {
+    left: 50%;
+    top: 13%;
+    transform: translate(-50%,-13%);
+  }
+}

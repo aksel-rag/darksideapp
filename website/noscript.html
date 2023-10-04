@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Required</title>
+</head>
+<body>
+    <p>JavaScript is required to access this website.</p>
+    <p>Please enable JavaScript in your browser or visit our <a href="non-js-version.html">non-JavaScript version</a>.</p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <script>
+        // JavaScript detection and redirection
+        if (typeof JavaScript !== 'undefined') {
+            // JavaScript is enabled, redirect to your main site
+            window.location.href = 'main.html'; // Replace with your main page URL
+        }
+    </script>
+</head>
+<body>
+    <!-- Content for users with JavaScript disabled -->
+    <noscript>
+        <p>JavaScript is required to access this website.</p>
+        <p>You will be redirected to our <a href="noscript.html">non-JavaScript version</a>.</p>
+    </noscript>
+
+    <!-- Your main website content goes here -->
+</body>
+</html>
