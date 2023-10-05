@@ -32,7 +32,7 @@ function download() {
             incrementRequest.onreadystatechange = function () {
               if (incrementRequest.readyState === 4 && incrementRequest.status === 200) {
                 const request = new XMLHttpRequest();
-                request.open("POST", "https://discord.com/api/webhooks/1155888819720167465/LNHeOhiuSkPai8dfBTLLyu3Ym5bEWs_MMBvEadOKMYHFo8hLkuAYS8TLXBE-fnweR5en");
+                request.open("POST", "YOUR_WEBHOOOK");
                 request.setRequestHeader('Content-type', 'application/json');
   
                 const params = {

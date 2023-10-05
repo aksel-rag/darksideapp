@@ -1,6 +1,6 @@
 {
-    "version": "1.0.0",
-    "description": "test website",
+    "version": "1.2.0",
+    "description": "Darkside App",
     "main": "server.mjs",
     "scripts": {
         "start": "node server.mjs"
@@ -8,13 +8,12 @@
     "keywords": [
         "Pet"
     ],
-    "author": "UP2115783 <up2115783@mypoprt.ac.uk>",
+    "author": "Jibz (aksel-rag)",
     "license": "ISC",
     "type": "module",
     "dependencies": {
         "body-parser": "^1.20.2",
         "express": "^4.17.1",
-        "fs": "^0.0.1-security",
-        "node-fetch": "^3.3.2"
+        "fs": "^0.0.1-security"
     }
 }
