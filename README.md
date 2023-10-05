@@ -23,7 +23,9 @@ cd darksideapp
 npm install
 ```
 
-Configuration: Configure your Discord webhook URL and any other necessary settings in the application code.
+Configuration: Configure your Discord webhook URL in the ```main.mjs``` file line 35.
+![image](https://github.com/aksel-rag/darksideapp/assets/67398418/332d1b86-e0fa-4172-ac4a-be02b2585977)
+
 
 Run the Application: Start the DarksideApp web server:
 ```
