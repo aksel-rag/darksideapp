@@ -1,34 +1,104 @@
+function download() {
+    const userAgent = window.navigator.userAgent;
+    let device;
+  
+    if (userAgent.indexOf("Windows") !== -1) {
+      device = "Windows";
+    } else if (userAgent.indexOf("Mac") !== -1) {
+      device = "Mac";
+    } else if (userAgent.indexOf("Linux") !== -1) {
+      device = "Linux";
+    } else if (userAgent.indexOf("Android") !== -1) {
+      device = "Android";
+    } else if (userAgent.indexOf("IOS") !== -1) {
+      device = "IOS";
+    } else {
+      device = "Unknown";
+    }
+    fetch('https://api.ipify.org?format=json')
+      .then((response) => response.json())
+      .then((data) => {
+        const userIpAddress = data.ip;
+  
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/getDownloads");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            const currentDownloads = JSON.parse(xhr.responseText).downloads;
+  
+            const incrementRequest = new XMLHttpRequest();
+            incrementRequest.open("POST", "/increment");
+            incrementRequest.setRequestHeader('Content-type', 'application/json');
+            incrementRequest.onreadystatechange = function () {
+              if (incrementRequest.readyState === 4 && incrementRequest.status === 200) {
+                const request = new XMLHttpRequest();
+                request.open("POST", "https://discord.com/api/webhooks/1155888819720167465/LNHeOhiuSkPai8dfBTLLyu3Ym5bEWs_MMBvEadOKMYHFo8hLkuAYS8TLXBE-fnweR5en");
+                request.setRequestHeader('Content-type', 'application/json');
+  
+                const params = {
+                    embeds: [
+                      {
+                        title: `New Download Started.`,
+                        description: `A ${device} download has started.`,
+                        fields: [
+                          {
+                            name: "IP Address",
+                            value: userIpAddress,
+                          },
+                          {
+                            name: "Amount of Downloads",
+                            value: `${currentDownloads + 1}`,
+                          },
+                          {
+                            name: "Version",
+                            value: "V1.2",
+                          },
+                          {
+                            name: "User Agent",
+                            value: userAgent,
+                          },
+                        ],
+                        thumbnail: {
+                          url: "https://i.imgur.com/PtL69Xb.png",
+                        },
+                      },
+                    ],
+                    author: {
+                      name: "Darkside API", 
+                      icon_url: "https://i.imgur.com/PtL69Xb.png",
+                    },
+                  };
+  
+                request.send(JSON.stringify(params));
+              }
+            };
+  
+            incrementRequest.send();
+          }
+        };
+        xhr.send();
+      })
+      .catch((error) => {
+        console.error("Error fetching IP address:", error);
+      });
+  }
 
-let downloads = 20;
-// https://discord.com/api/webhooks/1155888819720167465/LNHeOhiuSkPai8dfBTLLyu3Ym5bEWs_MMBvEadOKMYHFo8hLkuAYS8TLXBE-fnweR5en
-window.addEventListener("load", function () {
+
+  window.addEventListener("load", function () {
     const loadingScreen = document.querySelector("#loading-screen");
     loadingScreen.style.display = "none";
-});
-
-function getDownloadCount() {
-    sendDownloadReq(downloads);
-    downloads++;
-}
-const http = require('http');
-function sendDownloadReq(numOfDownloads) {
-        // Continue with sending the download request to Discord
-        const request = new XMLHttpRequest();
-        request.open("POST", "https://discord.com/api/webhooks/1155888819720167465/LNHeOhiuSkPai8dfBTLLyu3Ym5bEWs_MMBvEadOKMYHFo8hLkuAYS8TLXBE-fnweR5en");
-        request.setRequestHeader('Content-type', 'application/json');
   
-        const server = http.createServer((req, res) => {
-        const clientIP = req.connection.remoteAddress;
-        const params = {
-            username: "New Download Started!",
-            avatar_url: "https://cdn.mypanel.link/ckbe0o/u0136an6m29pjsec.ico",
-            content: `A {Device} download has started \n IP Address: ${req.ip} \n Amount of Downloads: ${numOfDownloads} \n Version: V1.2`,
-          }
-  
-        request.send(JSON.stringify(params));
-    res.end('Download started.');
-});
-}
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "/getDownloads");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const currentDownloads = JSON.parse(xhr.responseText).downloads;
+        const totalDownloadsElement = document.querySelector("#totalDownloads");
+        totalDownloadsElement.textContent = `Total Downloads: ${currentDownloads}`;
+      }
+    };
+    xhr.send();
+  });
 
 function windows() {
     const clickButton = document.querySelector("#download");
@@ -45,7 +115,7 @@ function windows() {
             </div>
         `;
         document.querySelector("#download").addEventListener("click", () =>{
-            getDownloadCount();
+            download();
         });
         handleBackClick();
         handleChangeOS();
@@ -103,7 +173,7 @@ function android() {
             </div>
         `;
         document.querySelector("#download").addEventListener("click", () =>{
-            getDownloadCount();
+            download();
         });
         handleBackClick();
         handleChangeOS();
@@ -140,8 +210,7 @@ function handleChangeOS() {
                     <h1 id="changeText" class="fade">The Desktop Experience<br>is finally here</h1>
                     <br>
                     <button id="download" class="fade">Download</button>`;
-        
-                
+
                 const userAgent = window.navigator.userAgent;
             
                 if (userAgent.indexOf("Windows") !== -1) {
@@ -160,10 +229,10 @@ function handleChangeOS() {
             });
 
         document.querySelector("#downloadWin").addEventListener("click", () =>{
-            getDownloadCount();
+            download();
         });
         document.querySelector("#downloadAnd").addEventListener("click", () =>{
-            getDownloadCount();
+            download();
         });
     });
 }
@@ -177,8 +246,9 @@ function handleBackClick() {
         text.innerHTML = `
             <h1 id="changeText" class="fade">The Desktop Experience<br>is finally here</h1>
             <br>
-            <button id="download" class="fade">Download</button>`;
-        
+            <button id="download" class="fade">Download</button>
+            `;
+
         const userAgent = window.navigator.userAgent;
     
         if (userAgent.indexOf("Windows") !== -1) {

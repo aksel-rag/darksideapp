@@ -1,8 +1,6 @@
 {
-    "name": "darkside app website",
     "version": "1.0.0",
     "description": "test website",
-    "type": "module",
     "main": "server.mjs",
     "scripts": {
         "start": "node server.mjs"
@@ -12,9 +10,11 @@
     ],
     "author": "UP2115783 <up2115783@mypoprt.ac.uk>",
     "license": "ISC",
+    "type": "module",
     "dependencies": {
         "body-parser": "^1.20.2",
         "express": "^4.17.1",
-        "fs": "^0.0.1-security"
+        "fs": "^0.0.1-security",
+        "node-fetch": "^3.3.2"
     }
 }
