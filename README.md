@@ -1,5 +1,5 @@
 # DarksideApp - Web Application
-![image](https://github.com/aksel-rag/darksideapp/assets/67398418/bab71b50-1db1-4f51-aaf0-cf43137d6d7d)
+<img src="https://app.darksidepanel.com/other/img/logo2.png" alt="DarksideApp" width="150">
 
 
 # Overview
