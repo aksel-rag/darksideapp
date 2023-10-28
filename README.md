@@ -34,4 +34,4 @@ npm start
 
 Access the Web App: Open your web browser and access the DarksideApp at http://localhost:5500.
 
-Thank you for choosing DarksideApp! We hope you find it valuable for your application's needs. If you have any feedback or suggestions, please don't hesitate to get in touch. Happy coding!
+Happy coding!
