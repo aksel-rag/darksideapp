@@ -1,6 +1,7 @@
 # DarksideApp - Web Application
 <img src="https://app.darksidepanel.com/other/img/logo2.png" alt="DarksideApp" width="150">
 
+![image](https://github.com/jibzdev/darksideapp/assets/67398418/3f5a0949-3a38-49d7-9637-0fe1db301b4b)
 
 # Overview
 DarksideApp is a web application that integrates with Discord webhooks, allowing you to track and notify your Discord community about application downloads and updates. It also includes OS detection to provide additional insights into the user's environment.
